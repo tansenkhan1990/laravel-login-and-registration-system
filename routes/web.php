@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('registration');
-});
+
+
+Route::get('/', 'RegistrationController@index');

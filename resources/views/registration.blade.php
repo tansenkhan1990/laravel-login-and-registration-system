@@ -101,6 +101,16 @@
     </style>
 </head>
 <body>
+
+<div class="container">
+    @if (Session::has('success_msg'))
+        <div class="alert alert-success alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>{{ Session::get('success_msg') }}</strong>
+        </div>
+    @endif
+
+
 @if($errors->any())
     <div class="alert alert-danger">
         @foreach($errors->all() as $error)
@@ -116,27 +126,57 @@
         <p class="hint-text">Create your account in SportShare.</p>
         <div class="form-group">
             <div class="row">
-                <div class="col-xs-6"><input type="text" class="form-control" name="first_name" placeholder="First name" required="required"></div>
-                <div class="col-xs-6"><input type="text" class="form-control" name="last_name" placeholder="Surname" required="required"></div>
+                <div class="col-xs-6"><input type="text" class="form-control" name="first_name" placeholder="First name" required="required">
+                    @if ($errors->has('first_name'))
+                        <span class="help-block">
+                                        <strong>{{ $errors->first('first_name') }}</strong>
+                                    </span>
+                    @endif
+                </div>
+                <div class="col-xs-6"><input type="text" class="form-control" name="last_name" placeholder="Surname" required="required">
+                    @if ($errors->has('last_name'))
+                        <span class="help-block">
+                                        <strong>{{ $errors->first('last_name') }}</strong>
+                                    </span>
+                    @endif
+                </div>
             </div>
         </div>
 
         <div class="form-group">
             <div class="row">
-                <div class="col-xs-12"><input type="text" class="form-control" name="birth_date" placeholder="Birth Date(dd.mm.yyyy)" required="required"></div>
+                <div class="col-xs-12"><input type="text" class="form-control" name="birth_date" placeholder="Birth Date(dd.mm.yyyy)" required="required">
+                    @if ($errors->has('birth_date'))
+                        <span class="help-block">
+                                        <strong>{{ $errors->first('birth_date') }}</strong>
+                                    </span>
+                    @endif
+                </div>
             </div>
         </div>
 
 
         <div class="form-group">
             <div class="row">
-                <div class="col-xs-12"><input type="text" class="form-control" name="user_name" placeholder="Username" required="required"></div>
+                <div class="col-xs-12"><input type="text" class="form-control" name="user_name" placeholder="Username" required="required">
+                    @if ($errors->has('user_name'))
+                        <span class="help-block">
+                                        <strong>{{ $errors->first('user_name') }}</strong>
+                                    </span>
+                    @endif
+                </div>
             </div>
         </div>
 
 
         <div class="form-group">
             <input type="email" class="form-control" name="email" placeholder="Email" required="required">
+            @if ($errors->has('email'))
+                <span class="help-block">
+                                        <strong>{{ $errors->first('birth_date') }}</strong>
+                                    </span>
+            @endif
+
         </div>
 
         <div class="form-check">
@@ -144,6 +184,11 @@
             <label class="form-check-label">Male</label>
         </div>
 
+        @if ($errors->has('birth_date'))
+            <span class="help-block">
+                                        <strong>{{ $errors->first('birth_date') }}</strong>
+                                    </span>
+    @endif
         <!-- Material checked -->
         <div class="form-check">
             <input type="radio" value="female" class="form-check-input" id="materialChecked" name="gender">
@@ -154,6 +199,11 @@
 
         <div class="form-group">
             <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+            @if ($errors->has('password'))
+                <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+            @endif
         </div>
         <div class="form-group">
             <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
@@ -163,7 +213,7 @@
         </div>
         <input type="hidden" name="remember_token" value="{{Session::token()}}">
     </form>
-    <div class="text-center">Already have an account? <a href="#">Sign in</a></div>
+    {{--<div class="text-center">Already have an account? <a href="#">Sign in</a></div>--}}
 </div>
 
 

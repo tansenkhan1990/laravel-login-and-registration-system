@@ -23,7 +23,7 @@ class RegistrationController extends Controller
             'user_name' => 'required|unique:users|max:255',
             'email' => 'required|unique:users|max:255',
             'gender' => 'required',
-            'password' => 'required',
+            'password' => 'required|min:6',
         ]);
         //get post data
         $postData = $request->all();
@@ -31,7 +31,7 @@ class RegistrationController extends Controller
         //insert post data
         User::create($postData);
         //store status message
-        Session::flash('success_msg', 'Post added successfully!');
+        Session::flash('success_msg', 'Congrats you are registered');
         return redirect()->route('index');
 
 

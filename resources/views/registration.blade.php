@@ -101,8 +101,17 @@
     </style>
 </head>
 <body>
+@if($errors->any())
+    <div class="alert alert-danger">
+        @foreach($errors->all() as $error)
+            <p>{{ $error }}</p>
+        @endforeach()
+    </div>
+@endif
+
 <div class="signup-form">
-    <form action="#" method="post">
+    <form action="{{ route('insert') }}" method="post">
+        {{ csrf_field() }}
         <h2>Registration</h2>
         <p class="hint-text">Create your account in SportShare.</p>
         <div class="form-group">
@@ -131,13 +140,13 @@
         </div>
 
         <div class="form-check">
-            <input type="radio" class="form-check-input" id="materialUnchecked" name="male">
+            <input type="radio" class="form-check-input" id="materialUnchecked" name="gender">
             <label class="form-check-label" for="materialUnchecked">Male</label>
         </div>
 
         <!-- Material checked -->
         <div class="form-check">
-            <input type="radio" class="form-check-input" id="materialChecked" name="female" checked>
+            <input type="radio" class="form-check-input" id="materialChecked" name="gender" checked>
             <label class="form-check-label" for="materialChecked">Female</label>
         </div>
 
@@ -152,6 +161,7 @@
         <div class="form-group">
             <button type="submit" class="btn btn-success btn-lg btn-block">Register Now</button>
         </div>
+        <input type="hidden" name="_token" value="{{Session::token()}}">
     </form>
     <div class="text-center">Already have an account? <a href="#">Sign in</a></div>
 </div>

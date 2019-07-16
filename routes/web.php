@@ -13,4 +13,6 @@
 
 
 
-Route::get('/', 'RegistrationController@index');
+Route::get('/', 'RegistrationController@index')->name('index');
+
+Route::post('/insert', 'RegistrationController@insert')->name('insert');

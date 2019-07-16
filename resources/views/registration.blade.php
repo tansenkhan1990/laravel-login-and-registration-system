@@ -140,14 +140,14 @@
         </div>
 
         <div class="form-check">
-            <input type="radio" class="form-check-input" id="materialUnchecked" name="gender">
-            <label class="form-check-label" for="materialUnchecked">Male</label>
+            <input type="radio" value="male" class="form-check-input" id="materialUnchecked" name="gender">
+            <label class="form-check-label">Male</label>
         </div>
 
         <!-- Material checked -->
         <div class="form-check">
-            <input type="radio" class="form-check-input" id="materialChecked" name="gender" checked>
-            <label class="form-check-label" for="materialChecked">Female</label>
+            <input type="radio" value="female" class="form-check-input" id="materialChecked" name="gender">
+            <label class="form-check-label" >Female</label>
         </div>
 
 
@@ -161,7 +161,7 @@
         <div class="form-group">
             <button type="submit" class="btn btn-success btn-lg btn-block">Register Now</button>
         </div>
-        <input type="hidden" name="_token" value="{{Session::token()}}">
+        <input type="hidden" name="remember_token" value="{{Session::token()}}">
     </form>
     <div class="text-center">Already have an account? <a href="#">Sign in</a></div>
 </div>

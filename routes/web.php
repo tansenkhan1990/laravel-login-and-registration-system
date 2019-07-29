@@ -16,3 +16,6 @@
 Route::get('/', 'RegistrationController@index')->name('index');
 
 Route::post('/insert', 'RegistrationController@insert')->name('insert');
+Route::get('/login', 'LoginControlller@login')->name('login');
+Route::post('/loginAuth', 'LoginControlller@login')->name('loginAuth');
+

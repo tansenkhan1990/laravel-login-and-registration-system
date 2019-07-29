@@ -19,7 +19,7 @@ class loginFunctionality
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
-                return redirect()->route('home');
+                return redirect()->route('login');
             }
         }
         return $next($request);

@@ -20,4 +20,6 @@ Route::get('/login', 'LoginControlller@login')->name('login');
 Route::post('/loginCheck', 'LoginControlller@loginCheck')->name('loginCheck');
 Route::get('/dashborad', 'LoginControlller@dashboard')->name('dashboard')
     ->middleware('loginCondition');
+Route::get('/logout', 'LoginControlller@logout')->name('logout');
+
 

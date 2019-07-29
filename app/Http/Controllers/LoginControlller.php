@@ -10,6 +10,11 @@ class LoginControlller extends Controller
     {
         return view('login');
     }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
+    }
     public function dashboard()
     {
         return view('dashboard');

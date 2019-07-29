@@ -1,3 +1,3 @@
 <h1>
-    hello tansen
+    {{Auth::user()}}
 </h1>
